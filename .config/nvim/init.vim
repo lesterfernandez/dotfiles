@@ -9,6 +9,8 @@ set cindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set splitbelow
+set splitright
 
 colorscheme gruvbox
 
@@ -23,10 +25,13 @@ let g:coc_global_extensions = [
   \ 'coc-css', 
   \ 'coc-tailwindcss', 
   \ 'coc-prisma', 
-  \ 'coc-graphql', 
   \ 'coc-docker', 
   \ ]
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
