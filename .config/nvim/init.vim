@@ -12,6 +12,9 @@ set expandtab
 set splitbelow
 set splitright
 
+set splitbelow
+set splitright
+
 colorscheme gruvbox
 
 let g:coc_global_extensions = [
@@ -26,6 +29,7 @@ let g:coc_global_extensions = [
   \ 'coc-tailwindcss', 
   \ 'coc-prisma', 
   \ 'coc-docker', 
+  \ 'coc-pyright'
   \ ]
 
 nnoremap <C-J> <C-W><C-J>
