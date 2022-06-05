@@ -45,7 +45,7 @@
   ],
   "editor.lineNumbers": "relative", // vim feature adopted by vscode
   // default settings for prettier extension
-  "prettier.printWidth": 70,
+  "prettier.printWidth": 80,
   "prettier.singleQuote": false,
   "prettier.useTabs": false,
   "prettier.arrowParens": "avoid",
@@ -61,7 +61,10 @@
     {
       "name": "vscode-expo-manifest",
       "url": "file:///home/lester/.config/Code/User/globalStorage/bycedric.vscode-expo/manifest-45.0.0.json",
-      "fileMatch": ["app.json", "app.config.json"]
+      "fileMatch": [
+        "app.json",
+        "app.config.json"
+      ]
     }
   ],
   // turn off annoying features
@@ -76,5 +79,12 @@
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true
-  }
+  },
+  "emmet.excludeLanguages": [
+    "markdown",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "javascript"
+  ]
 }
