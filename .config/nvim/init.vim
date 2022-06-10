@@ -17,6 +17,16 @@ set splitright
 
 colorscheme gruvbox
 
+" vimrc
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+
+set termguicolors " this variable must be enabled for colors to be applied properly
+
+" a list of groups can be found at `:help nvim_tree_highlight`
+highlight NvimTreeFolderIcon guibg=blue
+
 let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-tsserver',
