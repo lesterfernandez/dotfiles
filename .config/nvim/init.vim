@@ -1,6 +1,6 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
-lua require('lua/init')
+lua require('init')
 
 inoremap jk <ESC>
 set scrolloff=7
