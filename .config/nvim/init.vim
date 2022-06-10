@@ -1,5 +1,7 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
+lua require('lua/init')
+
 inoremap jk <ESC>
 set scrolloff=7
 set relativenumber
@@ -11,9 +13,8 @@ set shiftwidth=2
 set expandtab
 set splitbelow
 set splitright
-
-set splitbelow
-set splitright
+set shell=fish
+set autoindent
 
 colorscheme gruvbox
 
