@@ -18,6 +18,9 @@ set autoindent
 
 colorscheme gruvbox
 
+autocmd BufWritePre * :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufRead,BufNewFile *.go setlocal tabstop=4 softtabstop=4 noexpandtab
+
 " vimrc
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
@@ -73,15 +76,15 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+let g:airline_theme='base16_gruvbox_dark_medium'
+" let g:airline_theme='simple'
+
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')

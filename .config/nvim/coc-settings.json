@@ -5,7 +5,8 @@
     "typescript",
     "typescriptreact",
     "json",
-    "javascriptreact"
+    "javascriptreact",
+    "go"
   ],
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": true,
