@@ -55,6 +55,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+let g:airline_powerline_fonts = 1
+
 "nnoremap <C-p> :Files<Cr>
 nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
 nnoremap <CR> :noh<CR><CR>
