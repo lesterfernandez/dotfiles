@@ -1,9 +1,24 @@
 #!/bin/sh
+
+# pane setup
 cd ~/Documents/Projects/kyb
 tmux new -skyb -ncode -d
-tmux neww -c '#{pane_current_path}/apps/app' -n terminal
-tmux splitw -c '#{pane_current_path}/../server' -h
-tmux select-layout even-horizontal
+tmux splitp -h
+tmux selectp -t 1
+tmux send-keys -t 1 'cd apps/app; cls' Enter
+tmux splitp
+tmux send-keys -t 2 'cd apps/server; cls' Enter
+tmux selectp -t 3
+tmux resizep -Z
+tmux send-keys -t 3 'nvim .' Enter
+tmux neww
 tmux selectw -t code
-tmux send-keys -t 1 'nvim .' Enter
+
+# multi-window setup
+# tmux neww -c '#{pane_current_path}/apps/app' -n terminal
+# tmux splitw -c '#{pane_current_path}/../server' -h
+# tmux select-layout even-horizontal
+# tmux selectw -t code
+# tmux send-keys -t 1 'nvim .' Enter
+
 tmux attach -tkyb -d

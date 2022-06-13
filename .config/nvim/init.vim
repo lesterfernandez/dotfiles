@@ -39,13 +39,14 @@ let g:coc_global_extensions = [
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
+  \ 'coc-yaml', 
   \ 'coc-go', 
   \ 'coc-html', 
   \ 'coc-css', 
   \ 'coc-tailwindcss', 
   \ 'coc-prisma', 
   \ 'coc-docker', 
-  \ 'coc-pyright'
+  \ 'coc-pyright',
   \ ]
 
 nnoremap <silent> <Leader>- :resize -3<CR>
@@ -57,8 +58,18 @@ nnoremap <C-H> <C-W><C-H>
 
 let g:airline_powerline_fonts = 1
 
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+
 "nnoremap <C-p> :Files<Cr>
-nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
+  nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
 nnoremap <CR> :noh<CR><CR>
 
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
@@ -117,11 +128,3 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
