@@ -1,0 +1,9 @@
+#!/bin/sh
+cd ~/Documents/Projects/kyb
+tmux new -skyb -ncode -d
+tmux neww -c '#{pane_current_path}/apps/app' -n terminal
+tmux splitw -c '#{pane_current_path}/../server' -h
+tmux select-layout even-horizontal
+tmux selectw -t code
+tmux send-keys -t 1 'nvim .' Enter
+tmux attach -tkyb -d

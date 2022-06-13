@@ -15,13 +15,15 @@ set splitbelow
 set splitright
 set shell=fish
 set autoindent
+set colorcolumn=80
+
+let mapleader = ","
 
 colorscheme gruvbox
 
 autocmd BufWritePre * :silent call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd BufRead,BufNewFile *.go setlocal tabstop=4 softtabstop=4 noexpandtab
 
-" vimrc
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
@@ -46,10 +48,13 @@ let g:coc_global_extensions = [
   \ 'coc-pyright'
   \ ]
 
+nnoremap <silent> <Leader>- :resize -3<CR>
+nnoremap <silent> <Leader>+ :resize +3<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 "nnoremap <C-p> :Files<Cr>
 nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
 nnoremap <CR> :noh<CR><CR>
