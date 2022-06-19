@@ -56,6 +56,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap <silent> <Leader>rts :CocCommand tsserver.restart<CR>
+nnoremap <silent> <Leader>res :CocCommand eslint.restart<CR>
+
 let g:airline_powerline_fonts = 1
 
 " GoTo code navigation.
