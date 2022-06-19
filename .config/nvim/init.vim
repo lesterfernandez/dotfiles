@@ -106,6 +106,9 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:airline_theme='base16_gruvbox_dark_medium'
 " let g:airline_theme='simple'
 
+" fix nvim tree bug 
+highlight NvimTreeBg guibg=None cterm=None
+highlight! NvimTreeFolderIcon guibg=None ctermbg=None
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
