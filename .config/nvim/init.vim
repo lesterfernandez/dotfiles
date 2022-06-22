@@ -24,7 +24,7 @@ colorscheme gruvbox
 autocmd BufWritePre * :silent call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd BufRead,BufNewFile *.go setlocal tabstop=4 softtabstop=4 noexpandtab
 
-nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <C-n> :NvimTreeToggle<CR> :set number<CR> :set relativenumber<CR><CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
