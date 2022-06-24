@@ -21,6 +21,7 @@ let mapleader = ","
 
 colorscheme gruvbox
 
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 autocmd BufWritePre * :silent call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd BufRead,BufNewFile *.go setlocal tabstop=4 softtabstop=4 noexpandtab
 
