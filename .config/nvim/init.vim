@@ -71,22 +71,16 @@ nmap <silent> gr <Plug>(coc-references)
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
-
-"nnoremap <C-p> :Files<Cr>
-  nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
+let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
+noremap <C-p> :Files<Cr>
 nnoremap <CR> :noh<CR><CR>
 
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 set shortmess+=c
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -95,7 +89,6 @@ endfunction
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -107,7 +100,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:airline_theme='base16_gruvbox_dark_medium'
 " let g:airline_theme='simple'
 
-" fix nvim tree bug 
+" proper nvim tree coloring
 highlight NvimTreeBg guibg=None cterm=None
 highlight! NvimTreeFolderIcon guibg=None ctermbg=None
 
