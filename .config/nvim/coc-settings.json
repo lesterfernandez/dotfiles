@@ -6,7 +6,8 @@
     "typescriptreact",
     "json",
     "javascriptreact",
-    "go"
+    "go",
+    "graphql"
   ],
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": true,

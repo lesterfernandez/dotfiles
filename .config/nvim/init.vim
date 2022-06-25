@@ -48,6 +48,8 @@ let g:coc_global_extensions = [
   \ 'coc-prisma', 
   \ 'coc-docker', 
   \ 'coc-pyright',
+  \ 'coc-snippets',
+  \ 'coc-emmet'
   \ ]
 
 nnoremap <silent> <Leader>- :resize -3<CR>
