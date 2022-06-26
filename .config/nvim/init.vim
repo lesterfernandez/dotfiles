@@ -16,20 +16,22 @@ set splitright
 set shell=fish
 set autoindent
 set colorcolumn=80
+set hid
+set termguicolors " this variable must be enabled for colors to be applied properly
+set updatetime=1200
+syntax enable
 
 let mapleader = ","
 
 colorscheme gruvbox
 
-command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 autocmd BufWritePre * :silent call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd BufRead,BufNewFile *.go setlocal tabstop=4 softtabstop=4 noexpandtab
 
 nnoremap <C-n> :NvimTreeToggle<CR> :set number<CR> :set relativenumber<CR><CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
-
-set termguicolors " this variable must be enabled for colors to be applied properly
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " a list of groups can be found at `:help nvim_tree_highlight`
 highlight NvimTreeFolderIcon guibg=blue
@@ -54,6 +56,8 @@ let g:coc_global_extensions = [
 
 nnoremap <silent> <Leader>- :resize -3<CR>
 nnoremap <silent> <Leader>+ :resize +3<CR>
+nnoremap <silent> <Leader>> :vertical resize +3<CR>
+nnoremap <silent> <Leader>< :vertical resize -3<CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -99,7 +103,6 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:airline_theme='base16_gruvbox_dark_medium'
 let g:airline_powerline_fonts = 1
-set hid
 
 " proper nvim tree coloring
 highlight NvimTreeBg guibg=None cterm=None
