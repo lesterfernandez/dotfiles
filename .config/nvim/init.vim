@@ -60,8 +60,6 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <silent> <Leader>rts :CocCommand tsserver.restart<CR>
 nnoremap <silent> <Leader>res :CocCommand eslint.restart<CR>
 
-let g:airline_powerline_fonts = 1
-
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -98,7 +96,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " provide custom statusline: lightline.vim, vim-airline.
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:airline_theme='base16_gruvbox_dark_medium'
-" let g:airline_theme='simple'
+let g:airline_powerline_fonts = 1
+set hid
 
 " proper nvim tree coloring
 highlight NvimTreeBg guibg=None cterm=None
