@@ -25,8 +25,10 @@ let mapleader = ","
 
 colorscheme gruvbox
 
-autocmd BufWritePre * :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.ts, *.tsx, *.js, *.jsx, *.py, *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.prisma :Format
 autocmd BufRead,BufNewFile *.go setlocal tabstop=4 softtabstop=4 noexpandtab
+
 
 nnoremap <C-n> :NvimTreeToggle<CR> :set number<CR> :set relativenumber<CR><CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
@@ -54,6 +56,18 @@ let g:coc_global_extensions = [
   \ 'coc-emmet'
   \ ]
 
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 Format :call CocActionAsync('format')
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>qf  <Plug>(coc-fix-current)
+
 nnoremap <silent> <Leader>- :resize -3<CR>
 nnoremap <silent> <Leader>+ :resize +3<CR>
 nnoremap <silent> <Leader>> :vertical resize +3<CR>
@@ -78,8 +92,6 @@ nmap <leader>rn <Plug>(coc-rename)
 let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
 noremap <C-p> :Files<Cr>
 nnoremap <CR> :noh<CR><CR>
-
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 set shortmess+=c
 

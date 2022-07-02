@@ -19,5 +19,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'preservim/nerdcommenter'
+    Plug 'pantharshit00/vim-prisma'
 
 call plug#end()
