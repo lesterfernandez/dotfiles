@@ -25,7 +25,7 @@ let mapleader = ","
 
 colorscheme gruvbox
 
-autocmd BufWritePre *.ts, *.tsx, *.js, *.jsx, *.py, *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.py,*.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd BufWritePre *.prisma :Format
 autocmd BufRead,BufNewFile *.go setlocal tabstop=4 softtabstop=4 noexpandtab
 

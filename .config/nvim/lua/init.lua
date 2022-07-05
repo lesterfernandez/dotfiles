@@ -109,7 +109,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     },
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
     custom = {},
     exclude = {},
   },
@@ -119,7 +119,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     timeout = 400,
   },
   actions = {
