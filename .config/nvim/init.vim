@@ -3,70 +3,37 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 lua require('init')
 
 inoremap jk <ESC>
-set scrolloff=7
-set relativenumber
+set autoindent " copy indent from last line when inserting a new line
+set smartindent " indent in braces and other things
+set inccommand=split
+set lazyredraw
+set ignorecase
+set smarttab " insert tabs with shiftwidth value
+filetype plugin indent on
+set tabstop=2 " tab size
+set shiftwidth=2 " indentation size
+set expandtab " replace tabs with space
+set relativenumber 
 set number
-set smarttab
-set cindent
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set splitbelow
-set splitright
-set shell=fish
-set autoindent
+set scrolloff=7
 set colorcolumn=80
 set hid
 set termguicolors " this variable must be enabled for colors to be applied properly
-set updatetime=1200
-syntax enable
+" set updatetime=1200 
+set splitbelow
+set splitright
+set noshowmode " do not show text displaying mode (airline replaces this)
+
+colorscheme gruvbox-baby
 
 let mapleader = ","
-
-colorscheme gruvbox
-
-autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.py,*.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-autocmd BufWritePre *.prisma :Format
-autocmd BufRead,BufNewFile *.go setlocal tabstop=4 softtabstop=4 noexpandtab
-
 
 nnoremap <C-n> :NvimTreeToggle<CR> :set number<CR> :set relativenumber<CR><CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
-command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " a list of groups can be found at `:help nvim_tree_highlight`
 highlight NvimTreeFolderIcon guibg=blue
-
-let g:coc_global_extensions = [
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
-  \ 'coc-yaml', 
-  \ 'coc-go', 
-  \ 'coc-html', 
-  \ 'coc-css', 
-  \ 'coc-tailwindcss', 
-  \ 'coc-prisma', 
-  \ 'coc-docker', 
-  \ 'coc-pyright',
-  \ 'coc-snippets',
-  \ 'coc-emmet'
-  \ ]
-
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-command! -nargs=0 Format :call CocActionAsync('format')
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-nmap <leader>ac  <Plug>(coc-codeaction)
-nmap <leader>qf  <Plug>(coc-fix-current)
 
 nnoremap <silent> <Leader>- :resize -3<CR>
 nnoremap <silent> <Leader>+ :resize +3<CR>
@@ -77,18 +44,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <silent> <Leader>rts :CocCommand tsserver.restart<CR>
-nnoremap <silent> <Leader>res :CocCommand eslint.restart<CR>
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
 let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
 noremap <C-p> :Files<Cr>
 nnoremap <CR> :noh<CR><CR>
@@ -97,17 +52,6 @@ set shortmess+=c
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
@@ -120,27 +64,5 @@ let g:airline_powerline_fonts = 1
 highlight NvimTreeBg guibg=None cterm=None
 highlight! NvimTreeFolderIcon guibg=None ctermbg=None
 
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
 

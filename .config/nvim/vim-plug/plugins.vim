@@ -9,8 +9,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'morhetz/gruvbox'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-surround'
@@ -20,5 +19,30 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'preservim/nerdcommenter'
     Plug 'pantharshit00/vim-prisma'
+
+    Plug 'williamboman/nvim-lsp-installer'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'windwp/nvim-ts-autotag'
+    Plug 'windwp/nvim-autopairs'
+    Plug 'nvim-lua/plenary.nvim'
+    " Plug 'nvim-telescope/telescope.nvim'
+
+    " For vsnip users.
+    " Plug 'hrsh7th/cmp-vsnip'
+    " Plug 'hrsh7th/vim-vsnip'
+
+    " For luasnip users.
+    " Plug 'L3MON4D3/LuaSnip'
+    " Plug 'saadparwaiz1/cmp_luasnip'
+
+    " For ultisnips users.
+    Plug 'SirVer/ultisnips'
+    Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 call plug#end()
