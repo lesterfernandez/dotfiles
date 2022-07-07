@@ -31,6 +31,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'windwp/nvim-ts-autotag'
     Plug 'windwp/nvim-autopairs'
     Plug 'nvim-lua/plenary.nvim'
+    Plug 'jose-elias-alvarez/null-ls.nvim'
     " Plug 'nvim-telescope/telescope.nvim'
 
     " For vsnip users.
