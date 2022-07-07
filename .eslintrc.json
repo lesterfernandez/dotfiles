@@ -3,9 +3,7 @@
     "es2021": true,
     "node": true
   },
-  "extends": [
-    "eslint:recommended"
-  ],
+  "extends": ["eslint:recommended"],
   "rules": {
     "no-console": "off",
     "no-undef": "off",
@@ -20,12 +18,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".js",
-          ".ts",
-          ".tsx",
-          ".jsx"
-        ]
+        "extensions": [".js", ".ts", ".tsx", ".jsx"]
       }
     }
   }

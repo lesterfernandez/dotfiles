@@ -65,4 +65,6 @@ highlight NvimTreeBg guibg=None cterm=None
 highlight! NvimTreeFolderIcon guibg=None ctermbg=None
 
 autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
+" tsconfig.json is actually jsonc, help TypeScript set the correct filetype
+autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 

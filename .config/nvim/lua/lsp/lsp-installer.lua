@@ -1,5 +1,6 @@
 local servers = {
   "sumneko_lua",
+  -- "eslint",
   "html",
   "graphql",
   "tsserver",
@@ -16,6 +17,7 @@ local servers = {
 }
 
 require("nvim-lsp-installer").setup({
+  ensure_installed = servers,
   automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
   ui = {
     icons = {
@@ -34,12 +36,11 @@ end
 for _, server in pairs(servers) do
   local opts = {
     on_attach = require "lsp.handlers".on_attach,
-    capabilities = require "lsp.handlers".capabilities
+    capabilities = require "lsp.handlers".capabilities,
   }
-
-  if server == "sumneko_lua" then
-    local sumneko_opts = require "lsp.settings.sumneko_lua"
-    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+  local has_custom_opts, server_custom_opts = pcall(require, "lsp.settings." .. server)
+  if has_custom_opts then
+    opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
   end
 
   lspconfig[server].setup(opts);

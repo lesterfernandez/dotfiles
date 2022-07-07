@@ -1,14 +1,5 @@
 local M = {}
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
-if not status_cmp_ok then
-  return
-end
-
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
-
 M.setup = function()
   local config = {
     virtual_text = true,
@@ -19,6 +10,8 @@ M.setup = function()
       style = "minimal",
       border = "rounded",
       source = "always",
+      header = "",
+      prefix = "",
     }
   }
 
@@ -34,11 +27,10 @@ M.setup = function()
 
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    -- This sets the spacing and the prefix, obviously.
     virtual_text = {
-      spacing = 4,
-      prefix = ' '
+      spacing = 2,
+      prefix = '',
+      severity_limit = "Warning"
     }
   }
   )
@@ -66,15 +58,23 @@ end
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
-
+    client.resolved_capabilities.document_range_formatting = false
     vim.api.nvim_create_autocmd("BufWritePre", {
       command = "lua vim.lsp.buf.execute_command({command = \"_typescript.organizeImports\", arguments = {vim.fn.expand(\"%:p\")}})"
     })
-
   end
 
   setLSPKeymaps(bufnr)
 end
 
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local status_cmp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+if not status_cmp_ok then
+  return
+end
+
+-- M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
 return M
