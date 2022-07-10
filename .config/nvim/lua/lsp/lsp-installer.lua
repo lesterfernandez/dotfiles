@@ -1,6 +1,5 @@
 local servers = {
   "sumneko_lua",
-  -- "eslint",
   "html",
   "graphql",
   "tsserver",
