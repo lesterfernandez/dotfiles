@@ -8,7 +8,9 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+    Plug 'nvim-lua/plenary.nvim'
     Plug 'morhetz/gruvbox'
+    " Plug 'sainnhe/gruvbox-material'
     Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -30,7 +32,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/cmp-cmdline'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'windwp/nvim-autopairs'
-    Plug 'nvim-lua/plenary.nvim'
     Plug 'jose-elias-alvarez/null-ls.nvim'
     " Plug 'nvim-telescope/telescope.nvim'
 
