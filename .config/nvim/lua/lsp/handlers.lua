@@ -55,10 +55,18 @@ local function setLSPKeymaps(bufnr)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
 end
 
+local disable_formatting = {
+  ["tsserver"] = true,
+  ["html"] = true
+}
+
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
+  if disable_formatting[client.name] then
     client.resolved_capabilities.document_formatting = false
     client.resolved_capabilities.document_range_formatting = false
+  end
+
+  if client.name == "tsserver" then
     vim.api.nvim_create_autocmd("BufWritePre", {
       command = "lua vim.lsp.buf.execute_command({command = \"_typescript.organizeImports\", arguments = {vim.fn.expand(\"%:p\")}})"
     })
@@ -74,7 +82,7 @@ if not status_cmp_ok then
   return
 end
 
--- M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
 return M
