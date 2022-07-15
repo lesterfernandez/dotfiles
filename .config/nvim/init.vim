@@ -60,7 +60,7 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 " fzf
 let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
 noremap <C-p> :Files<Cr>
-nnoremap <CR> :noh<CR><CR>
+nnoremap <silent><CR> :noh<CR><CR>
 
 set shortmess+=c
 
@@ -70,5 +70,3 @@ let g:NERDDefaultAlign = 'left'
 " airline settings
 let g:airline_theme='base16_gruvbox_dark_medium'
 let g:airline_powerline_fonts = 1
-
-
