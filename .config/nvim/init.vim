@@ -42,10 +42,22 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+function EnterOrIndentTag()
+    let line = getline(".")
+    let col = getpos(".")[2]
+    let before = line[col-2]
+    let after = line[col-1]
+
+    if before == ">" && after == "<"
+        return "\<Enter>\<C-o>O"
+    endif
+    return "\<Enter>"
+endfunction
 
 " autocmds
 autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+autocmd BufRead,BufNewFile *.html,*.jsx,*.tsx inoremap <expr> <Enter> EnterOrIndentTag()  
 
 " nvimtree 
 " :help nvim_tree_highlight
