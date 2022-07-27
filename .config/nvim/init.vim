@@ -65,7 +65,7 @@ highlight NvimTreeFolderIcon guibg=blue
 " fix nvim tree coloring
 highlight NvimTreeBg guibg=None cterm=None
 highlight! NvimTreeFolderIcon guibg=None ctermbg=None
-nnoremap <C-n> :NvimTreeToggle<CR> :set number<CR> :set relativenumber<CR><CR>
+nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
