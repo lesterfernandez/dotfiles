@@ -8,6 +8,21 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+    " LSP and TreeSitter
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
+    Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'jose-elias-alvarez/null-ls.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+    " Nvim cmp
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+
     Plug 'nvim-lua/plenary.nvim'
     Plug 'morhetz/gruvbox'
     " Plug 'sainnhe/gruvbox-material'
@@ -21,19 +36,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'preservim/nerdcommenter'
     Plug 'pantharshit00/vim-prisma'
-
-    Plug 'williamboman/nvim-lsp-installer'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'hrsh7th/nvim-cmp'
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/cmp-path'
-    Plug 'hrsh7th/cmp-cmdline'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'windwp/nvim-autopairs'
-    Plug 'jose-elias-alvarez/null-ls.nvim'
     " Plug 'nvim-telescope/telescope.nvim'
+
+    " Snippets
 
     " For vsnip users.
     " Plug 'hrsh7th/cmp-vsnip'

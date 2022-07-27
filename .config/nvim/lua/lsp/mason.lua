@@ -12,20 +12,34 @@ local servers = {
   "gopls",
   "pyright",
   "tailwindcss",
-  "prismals",
+  "prismals"
 }
 
-require("nvim-lsp-installer").setup({
-  ensure_installed = servers,
-  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+local tools = {
+  "prettierd",
+  "eslint_d"
+}
+
+require("mason").setup({
   ui = {
     icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗"
     }
   }
 })
+
+require("mason-lspconfig").setup {
+  ensure_installed = servers,
+  automatic_installation = true,
+}
+
+require 'mason-tool-installer'.setup {
+  ensure_installed = tools,
+  auto_update = false,
+  run_on_start = false -- use :MasonToolsUpdate instead
+}
 
 local lspconfig = require "lspconfig"
 
