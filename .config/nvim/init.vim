@@ -25,10 +25,8 @@ set splitright
 set noshowmode " do not show text displaying mode (airline replaces this)
 
 " set background=dark
-" Available values: 'hard', 'medium'(default), 'soft'
 " let g:gruvbox_material_background = 'medium'
 " let g:gruvbox_material_better_performance = 1
-" colorscheme gruvbox-material
 colorscheme gruvbox-baby
 
 " remaps
@@ -41,21 +39,14 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-function EnterOrIndentTag()
-    let line = getline(".")
-    let col = getpos(".")[2]
-    let before = line[col-2]
-    let after = line[col-1]
-
-    if before == ">" && after == "<"
-        return "\<Enter>\<C-o>O"
-    endif
-    return "\<Enter>"
-endfunction
+" press <Tab> to expand or jump in a snippet. These can also be mapped separately
+" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
 
 " autocmds
-autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
 autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
 autocmd BufRead,BufNewFile *.html,*.jsx,*.tsx inoremap <expr> <Enter> EnterOrIndentTag()  
 
@@ -82,3 +73,17 @@ let g:NERDDefaultAlign = 'left'
 " airline settings
 let g:airline_theme='base16_gruvbox_dark_medium'
 let g:airline_powerline_fonts = 1
+
+" html util
+function EnterOrIndentTag()
+    let line = getline(".")
+    let col = getpos(".")[2]
+    let before = line[col-2]
+    let after = line[col-1]
+
+    if before == ">" && after == "<"
+        return "\<Enter>\<C-o>O"
+    endif
+    return "\<Enter>"
+endfunction
+

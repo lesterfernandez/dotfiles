@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
     " Nvim cmp
     Plug 'hrsh7th/nvim-cmp'
@@ -41,17 +42,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'nvim-telescope/telescope.nvim'
 
     " Snippets
-
-    " For vsnip users.
-    " Plug 'hrsh7th/cmp-vsnip'
-    " Plug 'hrsh7th/vim-vsnip'
-
-    " For luasnip users.
-    " Plug 'L3MON4D3/LuaSnip'
-    " Plug 'saadparwaiz1/cmp_luasnip'
-
-    " For ultisnips users.
-    Plug 'SirVer/ultisnips'
-    Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'saadparwaiz1/cmp_luasnip'
 
 call plug#end()
