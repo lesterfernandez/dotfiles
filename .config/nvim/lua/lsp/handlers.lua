@@ -66,6 +66,11 @@ M.on_attach = function(client, bufnr)
     client.resolved_capabilities.document_range_formatting = false
   end
 
+
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    command = "autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()"
+  })
+
   if client.name == "tsserver" then
     vim.api.nvim_create_autocmd("BufWritePre", {
       command = "lua vim.lsp.buf.execute_command({command = \"_typescript.organizeImports\", arguments = {vim.fn.expand(\"%:p\")}})"
