@@ -1,3 +1,7 @@
+vim.api.nvim_create_autocmd("BufWritePre", {
+  command = "autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()"
+})
+
 require "lsp.init"
 require "me.treesitter"
 require "me.nvim-cmp"
