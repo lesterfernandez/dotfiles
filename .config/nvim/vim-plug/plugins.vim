@@ -40,6 +40,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'windwp/nvim-ts-autotag'
     Plug 'windwp/nvim-autopairs'
     " Plug 'nvim-telescope/telescope.nvim'
+    Plug 'PeterRincker/vim-searchlight'
 
     " Snippets
     Plug 'L3MON4D3/LuaSnip'
