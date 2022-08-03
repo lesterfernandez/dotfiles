@@ -67,8 +67,10 @@ M.on_attach = function(client, bufnr)
   end
 
   if client.name == "tsserver" then
+    local tsserverGroup = vim.api.nvim_create_augroup("TSServer", { clear = true });
     vim.api.nvim_create_autocmd("BufWritePre", {
-      command = "lua vim.lsp.buf.execute_command({command = \"_typescript.organizeImports\", arguments = {vim.fn.expand(\"%:p\")}})"
+      command = "lua vim.lsp.buf.execute_command({command = \"_typescript.organizeImports\", arguments = {vim.fn.expand(\"%:p\")}})",
+      group = tsserverGroup
     })
   end
 

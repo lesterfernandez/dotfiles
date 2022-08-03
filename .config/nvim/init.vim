@@ -23,6 +23,7 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 set splitbelow
 set splitright
 set noshowmode " do not show text displaying mode (airline replaces this)
+set shell=/bin/bash
 
 " set background=dark
 " let g:gruvbox_material_background = 'medium'
@@ -47,8 +48,11 @@ snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
 snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
 
 " autocmds
-autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
-autocmd BufRead,BufNewFile *.html,*.jsx,*.tsx inoremap <expr> <Enter> EnterOrIndentTag()  
+augroup FileSpecifics
+  au!
+  autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
+  autocmd BufRead,BufNewFile *.html,*.jsx,*.tsx inoremap <expr> <Enter> EnterOrIndentTag()  
+augroup END
 
 " nvimtree 
 " :help nvim_tree_highlight
@@ -56,7 +60,7 @@ highlight NvimTreeFolderIcon guibg=blue
 " fix nvim tree coloring
 highlight NvimTreeBg guibg=None cterm=None
 highlight! NvimTreeFolderIcon guibg=None ctermbg=None
-nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <silent><C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
