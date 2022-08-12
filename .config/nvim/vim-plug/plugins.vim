@@ -24,6 +24,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
 
+    " Utils
     Plug 'nvim-lua/plenary.nvim'
     Plug 'morhetz/gruvbox'
     " Plug 'sainnhe/gruvbox-material'
@@ -41,6 +42,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'windwp/nvim-autopairs'
     " Plug 'nvim-telescope/telescope.nvim'
     Plug 'PeterRincker/vim-searchlight'
+    Plug 'lewis6991/gitsigns.nvim'
 
     " Snippets
     Plug 'L3MON4D3/LuaSnip'
