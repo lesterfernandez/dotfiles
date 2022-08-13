@@ -16,6 +16,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+    Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 
     " Nvim cmp
     Plug 'hrsh7th/nvim-cmp'
