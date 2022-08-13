@@ -3,35 +3,6 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 lua require('init')
 
 inoremap jk <ESC>
-set inccommand=split
-set lazyredraw
-set ignorecase
-set hlsearch
-set incsearch
-set autoindent " copy indent from last line when inserting a new line
-set smartindent " indent in braces and other things
-set smarttab " insert tabs with shiftwidth value
-set tabstop=2 " tab size
-set shiftwidth=2 " indentation size
-set expandtab " replace tabs with space
-set number
-set relativenumber 
-set scrolloff=7
-set colorcolumn=80
-set hid
-set termguicolors " this variable must be enabled for colors to be applied properly
-set splitbelow
-set splitright
-set noshowmode " do not show text displaying mode (airline replaces this)
-set shell=/bin/bash
-
-" set background=dark
-" let g:gruvbox_material_background = 'medium'
-" let g:gruvbox_material_better_performance = 1
-colorscheme gruvbox-baby
-
-" remaps
-let mapleader = ","
 nnoremap <silent> <Leader>- :resize -3<CR>
 nnoremap <silent> <Leader>+ :resize +3<CR>
 nnoremap <silent> <Leader>> :vertical resize +3<CR>

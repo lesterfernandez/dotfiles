@@ -1,3 +1,4 @@
+require "me.settings"
 require "me.autocmds"
 require "lsp.init"
 require "me.treesitter"
