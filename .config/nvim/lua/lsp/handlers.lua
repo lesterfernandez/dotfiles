@@ -50,9 +50,9 @@ local function setLSPKeymaps(bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   -- overwritten by lspsaga
   -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  -- vim.keymap.set('n', '<leader>qf', vim.lsp.buf.code_action, bufopts)
-  -- vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  -- vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+  -- vim.keymap.set('n', '<leader>qf', vim.lsp.buf.code_action, bufopts)
 end
 
 local disable_formatting = {

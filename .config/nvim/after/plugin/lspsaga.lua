@@ -1,7 +1,7 @@
 local saga = require 'lspsaga'
 -- change the lsp symbol kind
 -- local kind = require('lspsaga.lspkind')
---
+-- kind[type_number][2] = icon
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
@@ -18,7 +18,14 @@ vim.keymap.set("n", "<C-b>", function()
   action.smart_scroll_with_saga(-1)
 end, { silent = true })
 
--- use custom config
+vim.cmd("highlight LspSagaCodeActionBorder guifg='#E7D7AD'")
+vim.cmd("highlight LspSagaCodeActionContent guifg='#ebdbb2' gui='none'")
+vim.cmd("highlight LspSagaCodeActionTitle guifg='#ebdbb2' gui='bold'")
+vim.cmd("highlight LspSagaRenameBorder guifg='#E7D7AD'")
+vim.cmd("highlight LspSagaHoverBorder guifg='#E7D7AD'")
+vim.cmd("highlight LspSagaSignatureHelpBorder guifg='#E7D7AD'")
+vim.cmd("highlight LspSagaDefPreviewBorder guifg='#E7D7AD'")
+
 saga.init_lsp_saga({
   -- "single" | "double" | "rounded" | "bold" | "plus"
   border_style = "rounded",
@@ -54,7 +61,7 @@ saga.init_lsp_saga({
     sign = true,
     enable_in_insert = true,
     sign_priority = 20,
-    virtual_text = true,
+    virtual_text = false,
   },
   -- finder icons
   finder_icons = {
@@ -68,8 +75,8 @@ saga.init_lsp_saga({
   finder_request_timeout = 1500,
   finder_action_keys = {
     open = "o",
-    vsplit = "s",
-    split = "i",
+    vsplit = "<c-v>",
+    split = "<c-x>",
     tabe = "t",
     quit = "q",
     scroll_down = "<C-f>",

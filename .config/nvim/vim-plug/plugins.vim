@@ -13,10 +13,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'WhoIsSethDaniel/mason-tool-installer.nvim'
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-    Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
+    Plug 'windwp/nvim-ts-autotag'
+    Plug 'windwp/nvim-autopairs'
 
     " Nvim cmp
     Plug 'hrsh7th/nvim-cmp'
@@ -25,23 +27,21 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'hrsh7th/cmp-path'
     Plug 'hrsh7th/cmp-cmdline'
 
+    " Look and feel
+    Plug 'morhetz/gruvbox'
+    Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
+    Plug 'nvim-lualine/lualine.nvim'
+    Plug 'kyazdani42/nvim-web-devicons' " for file icons
+    
     " Utils
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'morhetz/gruvbox'
-    " Plug 'sainnhe/gruvbox-material'
-    Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
+    Plug 'kyazdani42/nvim-tree.lua'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    " Plug 'nvim-telescope/telescope.nvim' (todo)
     Plug 'tpope/vim-surround'
-    Plug 'kyazdani42/nvim-web-devicons' " for file icons
-    Plug 'kyazdani42/nvim-tree.lua'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
     Plug 'preservim/nerdcommenter'
     Plug 'pantharshit00/vim-prisma'
-    Plug 'windwp/nvim-ts-autotag'
-    Plug 'windwp/nvim-autopairs'
-    " Plug 'nvim-telescope/telescope.nvim'
     Plug 'PeterRincker/vim-searchlight'
     Plug 'lewis6991/gitsigns.nvim'
 
