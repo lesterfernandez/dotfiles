@@ -30,6 +30,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Look and feel
     Plug 'morhetz/gruvbox'
     Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
+    " Plug 'sainnhe/gruvbox-material'
     Plug 'nvim-lualine/lualine.nvim'
     Plug 'kyazdani42/nvim-web-devicons' " for file icons
     
