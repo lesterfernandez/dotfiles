@@ -39,7 +39,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    " Plug 'nvim-telescope/telescope.nvim' (todo)
+    " Plug 'nvim-telescope/telescope.nvim' 
+    " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
     Plug 'tpope/vim-surround'
     Plug 'preservim/nerdcommenter'
     Plug 'pantharshit00/vim-prisma'
