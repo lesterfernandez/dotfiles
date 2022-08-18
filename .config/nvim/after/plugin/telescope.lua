@@ -3,8 +3,8 @@
 --     -- Default configuration for telescope goes here:
 --     -- config_key = value,
 --     -- ..
---     layout_strategy = "vertical",
---     layout_config = { height = 0.4, width = 0.4 },
+--     -- layout_strategy = "vertical",
+--     layout_config = { height = 0.5, width = 0.6 },
 --     -- layout_config = {
 --     --   vertical = { width = 0.9 }
 --     --   -- other layout configuration here
@@ -14,11 +14,11 @@
 --         ["<C-s>"] = require("telescope.actions").select_horizontal,
 --       }
 --     },
---     borderchars = {
---       prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
---       results = { " " },
---       preview = { " " },
---     },
+--     -- borderchars = {
+--     --   prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+--     --   results = { " " },
+--     --   preview = { " " },
+--     -- },
 --   },
 --   pickers = {
 --     -- find_files = {
