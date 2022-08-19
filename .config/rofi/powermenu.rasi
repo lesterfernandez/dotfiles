@@ -1,0 +1,15 @@
+window {
+  width: 20em;
+}
+
+inputbar {
+  children: [entry];
+}
+
+listview {
+	lines: 5;
+}
+
+element {
+  padding: 10px;
+}
