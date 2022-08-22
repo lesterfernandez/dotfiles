@@ -46,6 +46,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'pantharshit00/vim-prisma'
     Plug 'PeterRincker/vim-searchlight'
     Plug 'lewis6991/gitsigns.nvim'
+    Plug 'mfussenegger/nvim-dap'
 
     " Snippets
     Plug 'L3MON4D3/LuaSnip'

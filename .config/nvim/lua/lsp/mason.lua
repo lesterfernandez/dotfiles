@@ -17,7 +17,8 @@ local servers = {
 
 local tools = {
   "prettierd",
-  "eslint_d"
+  "eslint_d",
+  "cpptools"
 }
 
 require("mason").setup({
