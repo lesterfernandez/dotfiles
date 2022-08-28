@@ -172,8 +172,10 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id "rofi -theme-str '#prompt { enabled: false; }' -show combi"
 bindsym $mod+space exec --no-startup-id "rofi -theme-str '#prompt { enabled: false; }' -show combi"
-bindsym $mod+b exec --no-startup-id google-chrome --password-store=gnome
-bindsym $mod+Shift+f exec --no-startup-id dolphin
+# bindsym $mod+b exec --no-startup-id google-chrome --password-store=gnome
+bindsym $mod+b exec --no-startup-id google-chrome-stable --password-store=gnome
+# bindsym $mod+b exec --no-startup-id chromium
+bindsym $mod+Shift+f exec --no-startup-id thunar
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec --no-startup-id $HOME/.fehbg &
