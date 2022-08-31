@@ -6,21 +6,21 @@ lua require('init')
 augroup FileSpecifics
   au!
   autocmd BufRead,BufNewFile tsconfig.json set filetype=jsonc
-  autocmd BufRead,BufNewFile *.html,*.jsx,*.tsx inoremap <expr> <Enter> EnterOrIndentTag()  
+  " autocmd BufRead,BufNewFile *.html,*.jsx,*.tsx inoremap <expr> <Enter> EnterOrIndentTag()  
 augroup END
 
 " HTML util
-function! EnterOrIndentTag()
-    let line = getline(".")
-    let col = getpos(".")[2]
-    let before = line[col-2]
-    let after = line[col-1]
+" function! EnterOrIndentTag()
+"     let line = getline(".")
+"     let col = getpos(".")[2]
+"     let before = line[col-2]
+"     let after = line[col-1]
 
-    if before == ">" && after == "<"
-        return "\<Enter>\<C-o>O"
-    endif
-    return "\<Enter>"
-endfunction
+"     if before == ">" && after == "<"
+"         return "\<Enter>\<C-o>O"
+"     endif
+"     return "\<Enter>"
+" endfunction
 
 " FZF config
 let g:fzf_preview_window = ['right:50%', 'ctrl-/']

@@ -5,7 +5,9 @@ require 'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
-    disable = {},
+    disable = { "cpp", "c", "graphql", "tsx", "jsx", "python", "javascript",
+      "typescript", "rust", "html", "lua",
+      "markdown", "vim", "yaml", "json" },
   },
   ensure_installed = {
     "c",

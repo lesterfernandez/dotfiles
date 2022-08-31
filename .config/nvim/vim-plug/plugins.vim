@@ -19,6 +19,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'windwp/nvim-autopairs'
+    " Temporary
+    Plug 'yioneko/nvim-yati'
 
     " Nvim cmp
     Plug 'hrsh7th/nvim-cmp'
