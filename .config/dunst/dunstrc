@@ -68,7 +68,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 16
+    transparency = 10 
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -89,7 +89,7 @@
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#7f3fbf"
+    frame_color = "#ebdbb2"
 
     # Define a color for the separator.
     # possible values are:
@@ -313,7 +313,6 @@
 #     timeout = 120
 #     # Icon for notifications with critical urgency, uncomment to enable
 #     icon = /usr/share/icons/Arc-X-D/status/16/dialog-warning.png
-
 [urgency_low]
     background = "#282828"
     foreground = "#ebdbb2"
