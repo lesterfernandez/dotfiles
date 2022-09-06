@@ -176,7 +176,7 @@ bindsym $mod+d exec --no-startup-id "rofi -theme-str '#prompt { enabled: false; 
 bindsym $mod+space exec --no-startup-id "rofi -theme-str '#prompt { enabled: false; }' -show combi"
 # bindsym $mod+b exec --no-startup-id google-chrome --password-store=gnome
 bindsym $mod+b exec --no-startup-id google-chrome-stable --password-store=gnome
-bindsym $mod+Shift+f exec --no-startup-id thunar
+bindsym $mod+Shift+f exec --no-startup-id nemo
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec --no-startup-id $HOME/.fehbg &

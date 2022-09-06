@@ -1,4 +1,5 @@
 local opts = { noremap = true, silent = true }
+vim.keymap.set("i", "jk", "<ESC>", opts);
 vim.keymap.set("n", "<leader>,", ",", opts);
 vim.keymap.set("n", "<c-k>", "<c-w><c-k>", opts);
 vim.keymap.set("n", "<c-l>", "<c-w><c-l>", opts);
