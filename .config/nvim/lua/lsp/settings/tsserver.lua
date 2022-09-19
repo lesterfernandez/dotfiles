@@ -14,7 +14,7 @@ local function filter(arr, fn)
 end
 
 local function filterReactDTS(value)
-  return string.match(value.uri, 'react/index.d.ts') == nil
+  return string.match(value.uri or value.targetUri, 'react/index.d.ts') == nil
 end
 
 return {
@@ -27,5 +27,10 @@ return {
 
       vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
     end
-  }
+  },
+  root_dir = function(pattern)
+    local cwd  = vim.loop.cwd();
+    local root = require "lspconfig".util.root_pattern("package.json", "tsconfig.json", ".git")(pattern);
+    return root or cwd;
+  end;
 }
