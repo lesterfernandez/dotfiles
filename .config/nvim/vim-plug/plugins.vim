@@ -49,6 +49,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'PeterRincker/vim-searchlight'
     Plug 'lewis6991/gitsigns.nvim'
     Plug 'mfussenegger/nvim-dap'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
     " Snippets
     Plug 'L3MON4D3/LuaSnip'
