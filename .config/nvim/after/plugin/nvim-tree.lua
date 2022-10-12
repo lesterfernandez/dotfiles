@@ -24,7 +24,6 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     adaptive_size = false,
     centralize_selection = false,
     width = 40,
-    height = 30,
     hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,
@@ -55,7 +54,6 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       },
     },
     icons = {
-      webdev_colors = true,
       git_placement = "before",
       padding = " ",
       symlink_arrow = " ➛ ",
@@ -90,20 +88,6 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       },
     },
     special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
-  },
-  hijack_directories = {
-    enable = true,
-    auto_open = true,
-  },
-  update_focused_file = {
-    enable = false,
-    update_cwd = false,
-    ignore_list = {},
-  },
-  ignore_ft_on_setup = {},
-  system_open = {
-    cmd = "",
-    args = {},
   },
   diagnostics = {
     enable = false,
@@ -144,7 +128,6 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       resize_window = true,
       window_picker = {
         enable = true,
-        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
         exclude = {
           filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
           buftype = { "nofile", "terminal", "help" },
@@ -163,17 +146,4 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     prefix = "[FILTER]: ",
     always_show_folders = true,
   },
-  log = {
-    enable = false,
-    truncate = false,
-    types = {
-      all = false,
-      config = false,
-      copy_paste = false,
-      diagnostics = false,
-      git = false,
-      profile = false,
-      watcher = false,
-    },
-  },
-} -- END_DEFAULT_OPTS
+}

@@ -37,10 +37,6 @@ saga.init_lsp_saga({
   -- entry is a table type has these filed
   -- { bufnr, code, col, end_col, end_lnum, lnum, message, severity, source }
   diagnostic_header = { " ", " ", " ", "ﴞ " },
-  -- show diagnostic source
-  show_diagnostic_source = true,
-  -- add bracket or something with diagnostic source, just have 2 elements
-  diagnostic_source_bracket = {},
   -- preview lines of lsp_finder and definition preview
   max_preview_lines = 10,
   -- use emoji lightbulb in default
@@ -80,8 +76,10 @@ saga.init_lsp_saga({
   },
   rename_action_quit = "<C-c>",
   rename_in_select = true,
-  definition_preview_icon = "  ",
   -- show symbols in winbar must nightly
+  -- in_custom mean use lspsaga api to get symbols
+  -- and set it to your custom winbar or some winbar plugins.
+  -- if in_cusomt = true you must set in_enable to false
   symbol_in_winbar = {
     in_custom = false,
     enable = false,
@@ -103,6 +101,9 @@ saga.init_lsp_saga({
     -- auto refresh when change buffer
     auto_refresh = true,
   },
+  -- custom lsp kind
+  -- usage { Field = 'color code'} or {Field = {your icon, your color code}}
+  custom_kind = {},
   -- if you don't use nvim-lspconfig you must pass your server name and
   -- the related filetypes into this table
   -- like server_filetype_map = { metals = { "sbt", "scala" } }
