@@ -62,8 +62,8 @@ local disable_formatting = {
 
 M.on_attach = function(client, bufnr)
   if disable_formatting[client.name] then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
   end
 
   if client.name == "tsserver" then
@@ -80,6 +80,6 @@ end
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = require 'cmp_nvim_lsp'.update_capabilities(M.capabilities)
+M.capabilities = require 'cmp_nvim_lsp'.default_capabilities(M.capabilities)
 
 return M
