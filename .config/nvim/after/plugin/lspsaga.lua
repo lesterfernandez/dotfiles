@@ -1,4 +1,9 @@
-local saga = require 'lspsaga'
+local ok, saga = pcall(require, "lspsaga")
+if not ok then
+  print("lspsaga did not load")
+  return
+end
+
 -- change the lsp symbol kind
 -- local kind = require('lspsaga.lspkind')
 -- kind[type_number][2] = icon

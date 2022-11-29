@@ -1,8 +1,14 @@
-local custom_gruvbox = require 'lualine.themes.gruvbox'
+local ok, lualine = pcall(require, "lualine")
+if not ok then
+  print("lualine did not load")
+  return
+end
+
+local custom_gruvbox = require("lualine.themes.gruvbox")
 -- make normal mode and command mode have same colors
 custom_gruvbox.command = vim.deepcopy(custom_gruvbox.normal)
 
-require('lualine').setup {
+lualine.setup {
   options = {
     icons_enabled = true,
     theme = custom_gruvbox,

@@ -1,4 +1,9 @@
-local dap = require('dap')
+local ok, dap = pcall(require, "dap")
+if not ok then
+  print("dap failed to load")
+  return
+end
+
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',

@@ -1,4 +1,10 @@
-require "luasnip.loaders.from_vscode".load({ paths = "./snippets" })
+local ok, luasnip_vscode_loader = pcall(require, "luasnip.loaders.from_vscode")
+if not ok then
+  print("nvim-autopairs failed to load")
+  return
+end
+
+luasnip_vscode_loader.load({ paths = "./snippets" })
 
 local opts = { noremap = true, silent = true }
 -- " press <Tab> to expand or jump in a snippet. These can also be mapped separately

@@ -1,3 +1,4 @@
+require "plugins"
 require "lsp.init"
 require "me.set"
 require "me.keymaps"

@@ -1,5 +1,8 @@
--- Setup nvim-cmp.
-local cmp = require 'cmp'
+local ok, cmp = pcall(require, "cmp")
+if not ok then
+  print("cmp failed to load")
+  return
+end
 
 cmp.setup({
   completion = {

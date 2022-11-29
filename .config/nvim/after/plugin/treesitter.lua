@@ -1,3 +1,9 @@
+local ok, _ = pcall(require, "nvim-treesitter")
+if not ok then
+  print("nvim-treesitter failed to load")
+  return
+end
+
 require 'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -39,7 +45,8 @@ require 'nvim-treesitter.configs'.setup {
   },
   context_commentstring = {
     enable = false
-  }
+  },
+  yati = { enable = true },
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

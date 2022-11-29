@@ -1,11 +1,16 @@
--- nvimtree
+local ok, nvim_tree = pcall(require, "nvim-tree")
+if not ok then
+  print("nvim-tree failed to load")
+  return
+end
+
 -- :help nvim_tree_highlight
 vim.cmd("highlight NvimTreeFolderIcon guibg=blue")
 -- fix nvim tree coloring
 vim.cmd("highlight NvimTreeBg guibg=None cterm=None")
 vim.cmd('highlight! NvimTreeFolderIcon guibg=None ctermbg=None')
 
-require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
+nvim_tree.setup({
   auto_reload_on_write = true,
   create_in_closed_folder = false,
   disable_netrw = false,
@@ -146,4 +151,4 @@ require 'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
     prefix = "[FILTER]: ",
     always_show_folders = true,
   },
-}
+})
