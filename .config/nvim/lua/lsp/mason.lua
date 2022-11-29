@@ -12,7 +12,8 @@ local servers = {
   "gopls",
   "pyright",
   "tailwindcss",
-  "prismals"
+  "prismals",
+  "jdtls"
 }
 
 local tools = {

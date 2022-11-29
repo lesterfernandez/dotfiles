@@ -6,7 +6,7 @@ case "$chosen" in
   "  Power Off") poweroff ;;
   "  Logout") i3-msg exit ;;
   "  Restart") reboot ;;
-  "  Lock") lock.sh ;;
+  "  Lock") loginctl lock-session ;;
   "⏾  Sleep") systemctl suspend;;
   *) exit 1 ;;
 esac

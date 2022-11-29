@@ -28,6 +28,7 @@ local options = {
   swapfile = false,
   wrap = false,
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
+  clipboard = "unnamedplus"
 }
 
 vim.opt.shortmess:append "c"
