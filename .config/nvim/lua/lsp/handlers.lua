@@ -60,6 +60,7 @@ local function setLSPKeymaps(bufnr, client)
   if has_saga then
     vim.keymap.set("n", "<leader>qf", "<cmd>Lspsaga code_action<CR>", bufopts)
     vim.keymap.set("n", "gp", "<cmd>Lspsaga peek_definition<CR>", opts)
+    vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", bufopts)
   end
 end
 
