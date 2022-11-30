@@ -4,11 +4,15 @@ if not ok then
   return
 end
 
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "<c-p>", ":Telescope find_files<CR>", opts);
+vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>lua require'telescope.builtin'.find_files(opts) <CR>",
+  { noremap = true, silent = true })
+vim.api.nvim_create_user_command("LiveGrep", "lua require'telescope.builtin'.live_grep(opts) <CR>", {})
+
 telescope.setup {
   defaults = {
-    -- Default configuration for telescope goes here:
-    -- config_key = value,
-    -- ..
+    file_ignore_patterns = { "node_modules" },
     layout_strategy = "center",
     layout_config = { height = 0.7, width = 0.8 },
     mappings = {
@@ -16,30 +20,31 @@ telescope.setup {
         ["<C-s>"] = require("telescope.actions").select_horizontal,
       }
     },
-    -- borderchars = {
-    --   prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-    --   results = { " " },
-    --   preview = { " " },
-    -- },
   },
   pickers = {
     find_files = {
       theme = "dropdown",
     }
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
   },
   extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
+    fzf = {
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case",
+    }
   }
+  -- borderchars = {
+  --   prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+  --   results = { " " },
+  --   preview = { " " },
+  -- },
+  -- picker_name = {
+  --   picker_config_key = value,
+  --   ...
+  -- }
+  -- Now the picker_config_key will be applied every time you call this
+  -- builtin picker
 }
--- require('telescope').load_extension('fzf')
+
+telescope.load_extension('fzf')

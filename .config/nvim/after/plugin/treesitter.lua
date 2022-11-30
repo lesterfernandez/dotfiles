@@ -35,7 +35,8 @@ require 'nvim-treesitter.configs'.setup {
     "css",
     "scss",
     "yaml",
-    "graphql"
+    "graphql",
+    "vim"
   },
   autopairs = {
     enable = true

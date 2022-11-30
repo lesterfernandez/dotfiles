@@ -4,8 +4,14 @@ if not ok then
   return
 end
 
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "<c-n>", ":NvimTreeToggle<CR>", opts);
+-- vim.keymap.set("n", "r", ":NvimTreeRefresh<CR>", opts);
+-- vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>", opts);
+
 -- :help nvim_tree_highlight
 vim.cmd("highlight NvimTreeFolderIcon guibg=blue")
+
 -- fix nvim tree coloring
 vim.cmd("highlight NvimTreeBg guibg=None cterm=None")
 vim.cmd('highlight! NvimTreeFolderIcon guibg=None ctermbg=None')
