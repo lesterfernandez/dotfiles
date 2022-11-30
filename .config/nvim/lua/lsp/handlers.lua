@@ -31,6 +31,11 @@ M.setup = function()
       severity_limit = "Warning"
     }
   })
+
+  local has_telescope_builtins, telescope_builtins = pcall(require, "telescope.builtin")
+  if has_telescope_builtins then
+    vim.lsp.handlers["textDocument/references"] = telescope_builtins.lsp_references
+  end
 end
 
 local function setLSPKeymaps(bufnr, client)

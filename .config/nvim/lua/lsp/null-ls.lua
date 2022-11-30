@@ -8,16 +8,16 @@ end
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
+-- local code_actions = null_ls.builtins.code_actions
 -- local completion = null_ls.builtins.completion
 -- local hover = null_ls.builtins.hover
--- local code_actions = null_ls.builtins.code_actions
 
 
 null_ls.setup({
   diagnostics_format = "#{m} (#{s})",
   sources = {
     formatting.prettierd,
-    diagnostics.eslint_d.with({
+    diagnostics.eslint.with({
       condition = function(utils)
         return utils.root_has_file({ ".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.cjs" })
       end

@@ -11,7 +11,7 @@ require 'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
-    disable = { "cpp", "c", "graphql", "tsx", "jsx", "python", "javascript",
+    disable = { "cpp", "c", "tsx", "jsx", "python", "javascript",
       "typescript", "rust", "html", "lua",
       "markdown", "vim", "yaml", "json" },
   },
@@ -47,7 +47,7 @@ require 'nvim-treesitter.configs'.setup {
   context_commentstring = {
     enable = false
   },
-  yati = { enable = true },
+  yati = { enable = true, disable = { "graphql" } },
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

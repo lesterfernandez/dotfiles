@@ -12,17 +12,19 @@ vim.api.nvim_create_user_command("LiveGrep", "lua require'telescope.builtin'.liv
 
 telescope.setup {
   defaults = {
-    file_ignore_patterns = { "node_modules" },
+    file_ignore_patterns = { "node_modules", "^.git/" },
     layout_strategy = "center",
     layout_config = { height = 0.7, width = 0.8 },
     mappings = {
       i = {
         ["<C-s>"] = require("telescope.actions").select_horizontal,
+        ["<C-u>"] = false,
       }
     },
   },
   pickers = {
     find_files = {
+      hidden = true,
       theme = "dropdown",
     }
   },
