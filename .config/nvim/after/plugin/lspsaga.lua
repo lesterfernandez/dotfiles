@@ -8,13 +8,6 @@ end
 -- local kind = require('lspsaga.lspkind')
 -- kind[type_number][2] = icon
 
-local opts = { noremap = true, silent = true }
-vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
-vim.keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<CR>', opts)
-vim.keymap.set('n', 'gp', '<cmd>Lspsaga preview_definition<CR>', opts)
-vim.keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', opts)
-vim.keymap.set('n', '<leader>qf', '<cmd>Lspsaga code_action<CR>', opts)
-
 vim.cmd("highlight LspSagaCodeActionBorder guifg='#E7D7AD'")
 vim.cmd("highlight LspSagaCodeActionContent guifg='#ebdbb2' gui='none'")
 vim.cmd("highlight LspSagaCodeActionTitle guifg='#ebdbb2' gui='bold'")
@@ -26,21 +19,11 @@ vim.cmd("highlight LspSagaDefPreviewBorder guifg='#E7D7AD'")
 saga.init_lsp_saga({
   -- "single" | "double" | "rounded" | "bold" | "plus"
   border_style = "rounded",
-  --the range of 0 for fully opaque window (disabled) to 100 for fully
-  --transparent background. Values between 0-30 are typically most useful.
+  -- range 0 - 100 of transparency
   saga_winblend = 0,
   -- when cursor in saga window you config these to move
   move_in_saga = { prev = '<C-p>', next = '<C-n>' },
   -- Error, Warn, Info, Hint
-  -- use emoji like
-  -- { "🙀", "😿", "😾", "😺" }
-  -- or
-  -- { "😡", "😥", "😤", "😐" }
-  -- and diagnostic_header can be a function type
-  -- must return a string and when diagnostic_header
-  -- is function type it will have a param `entry`
-  -- entry is a table type has these filed
-  -- { bufnr, code, col, end_col, end_lnum, lnum, message, severity, source }
   diagnostic_header = { " ", " ", " ", "ﴞ " },
   -- preview lines of lsp_finder and definition preview
   max_preview_lines = 10,
@@ -81,21 +64,10 @@ saga.init_lsp_saga({
   },
   rename_action_quit = "<C-c>",
   rename_in_select = true,
-  -- show symbols in winbar must nightly
-  -- in_custom mean use lspsaga api to get symbols
-  -- and set it to your custom winbar or some winbar plugins.
-  -- if in_cusomt = true you must set in_enable to false
-  symbol_in_winbar = {
-    in_custom = false,
-    enable = false,
-    separator = ' ',
-    show_file = true,
-    click_support = false,
-  },
   -- show outline
   show_outline = {
     win_position = 'right',
-    --set special filetype win that outline window split.like NvimTree neotree
+    -- set special filetype win that outline window split.like NvimTree neotree
     -- defx, db_ui
     win_with = '',
     win_width = 30,
@@ -107,10 +79,6 @@ saga.init_lsp_saga({
     auto_refresh = true,
   },
   -- custom lsp kind
-  -- usage { Field = 'color code'} or {Field = {your icon, your color code}}
+  -- { Field = 'color code'} or {Field = {your icon, your color code}}
   custom_kind = {},
-  -- if you don't use nvim-lspconfig you must pass your server name and
-  -- the related filetypes into this table
-  -- like server_filetype_map = { metals = { "sbt", "scala" } }
-  server_filetype_map = {},
 })
