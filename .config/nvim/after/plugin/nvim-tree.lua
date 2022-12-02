@@ -112,8 +112,6 @@ nvim_tree.setup({
   },
   filters = {
     dotfiles = false,
-    custom = {},
-    exclude = {},
   },
   filesystem_watchers = {
     enable = true,
@@ -130,9 +128,6 @@ nvim_tree.setup({
       enable = true,
       global = false,
       restrict_above_cwd = false,
-    },
-    expand_all = {
-      max_folder_discovery = 300,
     },
     open_file = {
       quit_on_open = false,
@@ -152,9 +147,5 @@ nvim_tree.setup({
   trash = {
     cmd = "gio trash",
     require_confirm = true,
-  },
-  live_filter = {
-    prefix = "[FILTER]: ",
-    always_show_folders = true,
   },
 })

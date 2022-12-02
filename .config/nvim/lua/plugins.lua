@@ -45,7 +45,7 @@ return require("packer").startup(function(use)
   use { "morhetz/gruvbox",
     requires = {
       { "nvim-lualine/lualine.nvim" },
-      { "kyazdani42/nvim-web-devicons", opt = true } --for file icons,
+      { "kyazdani42/nvim-web-devicons" } --for file icons,
     }
   }
   use { "luisiacc/gruvbox-baby", branch = "main" }
@@ -63,7 +63,6 @@ return require("packer").startup(function(use)
   }
   use "tpope/vim-surround"
   use "preservim/nerdcommenter"
-  use "pantharshit00/vim-prisma"
   use "PeterRincker/vim-searchlight"
   use "lewis6991/gitsigns.nvim"
   use "mfussenegger/nvim-dap"

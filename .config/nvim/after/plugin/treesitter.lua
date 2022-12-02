@@ -39,7 +39,7 @@ require 'nvim-treesitter.configs'.setup {
     "vim"
   },
   autopairs = {
-    enable = true
+    enable = true,
   },
   autotag = {
     enable = true
