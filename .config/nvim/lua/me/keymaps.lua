@@ -10,3 +10,5 @@ vim.keymap.set("n", "<leader>+", ":resize +3<CR>", opts);
 vim.keymap.set("n", "<leader>>", ":vertical resize +3<CR>", opts);
 vim.keymap.set("n", "<leader><", ":vertical resize -3<CR>", opts);
 vim.keymap.set("n", "<CR>", ":noh<CR>", opts);
+vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
+vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)

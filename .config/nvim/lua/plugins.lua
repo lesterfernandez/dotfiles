@@ -65,6 +65,7 @@ return require("packer").startup(function(use)
   use "preservim/nerdcommenter"
   use "PeterRincker/vim-searchlight"
   use "lewis6991/gitsigns.nvim"
+  use "pantharshit00/vim-prisma"
   use "mfussenegger/nvim-dap"
   use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" }
 
