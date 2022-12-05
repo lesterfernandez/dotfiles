@@ -68,6 +68,7 @@ return require("packer").startup(function(use)
   use "pantharshit00/vim-prisma"
   use "mfussenegger/nvim-dap"
   use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" }
+  -- use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
 
   --Snippets
   use "L3MON4D3/LuaSnip"
