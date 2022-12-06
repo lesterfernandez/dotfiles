@@ -80,14 +80,6 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.document_range_formatting = false
   end
 
-  if client.name == "tsserver" then
-    local tsserverGroup = vim.api.nvim_create_augroup("TSServer", { clear = true });
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      command = "lua vim.lsp.buf.execute_command({command = \"_typescript.organizeImports\", arguments = {vim.fn.expand(\"%:p\")}})",
-      group = tsserverGroup
-    })
-  end
-
   setLSPKeymaps(bufnr, client)
 end
 

@@ -5,9 +5,10 @@ if not ok then
 end
 
 local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<c-p>", ":Telescope find_files<CR>", opts);
 vim.api.nvim_set_keymap("n", "<C-p>", "<CMD>lua require'telescope.builtin'.find_files(opts) <CR>",
-  { noremap = true, silent = true })
+  opts)
+vim.api.nvim_set_keymap("n", "<leader>b", ":Telescope buffers<CR>",
+  opts)
 vim.api.nvim_create_user_command("LiveGrep", "lua require'telescope.builtin'.live_grep(opts) <CR>", {})
 
 telescope.setup {
@@ -26,6 +27,17 @@ telescope.setup {
     find_files = {
       hidden = true,
       theme = "dropdown",
+    },
+    buffers = {
+      show_all_buffers = true,
+      sort_lastused = true,
+      theme = "dropdown",
+      previewer = false,
+      mappings = {
+        i = {
+          ["<C-d>"] = require('telescope.actions').delete_buffer,
+        }
+      }
     }
   },
   extensions = {
@@ -36,6 +48,7 @@ telescope.setup {
       case_mode = "smart_case",
     }
   }
+
   -- borderchars = {
   --   prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
   --   results = { " " },
