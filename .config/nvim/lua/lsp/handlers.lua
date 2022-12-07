@@ -69,12 +69,11 @@ local function setLSPKeymaps(bufnr, client)
   end
 end
 
-local disable_formatting = {
-  ["tsserver"] = true,
-  ["html"] = true
-}
-
 M.on_attach = function(client, bufnr)
+  local disable_formatting = {
+    ["tsserver"] = true,
+    ["html"] = true
+  }
   if disable_formatting[client.name] then
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
