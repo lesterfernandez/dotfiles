@@ -1,5 +1,3 @@
-bass source ~/.bashrc
-
 set fish_greeting 
 
 alias docker "sudo docker"
@@ -12,3 +10,4 @@ set -g FZF_CTRL_T_COMMAND "find \$dir -not \( -path '*/*node_modules' -prune \) 
 
 fish_vi_key_bindings
 
+bass source ~/.bashrc

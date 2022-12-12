@@ -37,10 +37,10 @@ require("mason-lspconfig").setup {
   automatic_installation = true,
 }
 
-require 'mason-tool-installer'.setup {
+require("mason-tool-installer").setup {
   ensure_installed = tools,
-  auto_update = false,
-  run_on_start = false -- use :MasonToolsUpdate instead
+  auto_update = true,
+  run_on_start = true -- use :MasonToolsUpdate instead
 }
 
 local lspconfig = require "lspconfig"

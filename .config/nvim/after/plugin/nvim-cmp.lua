@@ -23,7 +23,6 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
       select = true
     }),
     ['<Tab>'] = cmp.mapping(function(fallback)
@@ -47,8 +46,8 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    -- { name = 'vsnip' }, -- For vsnip users.
-    { name = 'luasnip' }, -- For luasnip users.
+    { name = 'luasnip' },
+    { name = "path" },
   }, {
     { name = 'buffer' },
   })

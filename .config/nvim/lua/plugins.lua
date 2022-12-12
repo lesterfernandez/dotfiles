@@ -20,7 +20,7 @@ return require("packer").startup(function(use)
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "williamboman/mason-lspconfig.nvim",
     "jose-elias-alvarez/null-ls.nvim",
-    "glepnir/lspsaga.nvim"
+    "glepnir/lspsaga.nvim",
   } } }
 
   --- Treesitter
@@ -38,7 +38,7 @@ return require("packer").startup(function(use)
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
-    "saadparwaiz1/cmp_luasnip"
+    "saadparwaiz1/cmp_luasnip",
   } } }
 
   -- -- Look and feel
@@ -68,7 +68,6 @@ return require("packer").startup(function(use)
   use "pantharshit00/vim-prisma"
   use "mfussenegger/nvim-dap"
   use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" }
-  -- use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
 
   --Snippets
   use "L3MON4D3/LuaSnip"
