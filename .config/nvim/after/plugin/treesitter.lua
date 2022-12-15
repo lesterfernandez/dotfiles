@@ -1,10 +1,10 @@
-local ok, _ = pcall(require, "nvim-treesitter")
+local ok, treesitter = pcall(require, "nvim-treesitter.configs")
 if not ok then
-  print("nvim-treesitter failed to load")
+  print("nvim-treesitter.config failed to load")
   return
 end
 
-require 'nvim-treesitter.configs'.setup {
+treesitter.setup {
   highlight = {
     enable = true,
     disable = { "html" },
@@ -50,5 +50,9 @@ require 'nvim-treesitter.configs'.setup {
   yati = { enable = true, disable = { "graphql" } },
 }
 
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+local ok, parsers = pcall(require, "nvim-treesitter.parsers")
+if not ok then
+  print("nvim-treesitter.parsers failed to load")
+  return
+end
+parsers.get_parser_configs().tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }

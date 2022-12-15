@@ -4,14 +4,12 @@ if not ok then
   return
 end
 
-local custom_gruvbox = require("lualine.themes.gruvbox")
--- make normal mode and command mode have same colors
-custom_gruvbox.command = vim.deepcopy(custom_gruvbox.normal)
+local gruvbox = require("lualine.themes.gruvbox")
 
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = custom_gruvbox,
+    theme = gruvbox,
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = {

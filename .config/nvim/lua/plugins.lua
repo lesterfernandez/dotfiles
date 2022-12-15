@@ -49,6 +49,7 @@ return require("packer").startup(function(use)
     }
   }
   use { "luisiacc/gruvbox-baby", branch = "main" }
+  use { "RRethy/vim-illuminate" }
 
   -- Utils
   use "nvim-lua/plenary.nvim"
@@ -61,10 +62,11 @@ return require("packer").startup(function(use)
       { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
     }
   }
+  use "tpope/vim-fugitive"
+  use "lewis6991/gitsigns.nvim"
   use "tpope/vim-surround"
   use "preservim/nerdcommenter"
   use "PeterRincker/vim-searchlight"
-  use "lewis6991/gitsigns.nvim"
   use "pantharshit00/vim-prisma"
   use "mfussenegger/nvim-dap"
   use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" }
