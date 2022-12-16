@@ -22,5 +22,6 @@ null_ls.setup({
         return utils.root_has_file({ ".eslintrc", ".eslintrc.json", ".eslintrc.js", ".eslintrc.cjs" })
       end
     }),
+    formatting.black,
   }
 })

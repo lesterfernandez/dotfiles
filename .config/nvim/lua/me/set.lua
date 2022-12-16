@@ -37,3 +37,16 @@ vim.g.mapleader = ","
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+local highlight_yank = vim.api.nvim_create_augroup("highlight_yank", { clear = true });
+vim.api.nvim_create_autocmd("TextYankPost", {
+  pattern = "*",
+  group = highlight_yank,
+  callback = function() vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 100,
+      on_macro = true,
+      on_visual = false
+    })
+  end
+})

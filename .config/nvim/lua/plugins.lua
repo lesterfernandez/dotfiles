@@ -42,14 +42,13 @@ return require("packer").startup(function(use)
   } } }
 
   -- -- Look and feel
-  use { "morhetz/gruvbox",
+  use { "gruvbox-community/gruvbox",
     requires = {
       { "nvim-lualine/lualine.nvim" },
       { "kyazdani42/nvim-web-devicons" } --for file icons,
     }
   }
   use { "luisiacc/gruvbox-baby", branch = "main" }
-  use { "RRethy/vim-illuminate" }
 
   -- Utils
   use "nvim-lua/plenary.nvim"
@@ -62,14 +61,13 @@ return require("packer").startup(function(use)
       { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
     }
   }
-  use "tpope/vim-fugitive"
   use "lewis6991/gitsigns.nvim"
   use "tpope/vim-surround"
   use "preservim/nerdcommenter"
   use "PeterRincker/vim-searchlight"
   use "pantharshit00/vim-prisma"
-  use "mfussenegger/nvim-dap"
   use { "iamcco/markdown-preview.nvim", run = "cd app && yarn install" }
+  use "mfussenegger/nvim-dap"
 
   --Snippets
   use "L3MON4D3/LuaSnip"

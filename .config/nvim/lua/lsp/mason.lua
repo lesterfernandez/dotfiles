@@ -1,25 +1,22 @@
 local servers = {
   "sumneko_lua",
   "html",
-  "graphql",
   "tsserver",
-  "dockerls",
   "emmet_ls",
-  "marksman",
-  "jsonls",
   "clangd",
   "cssls",
   "gopls",
   "pyright",
-  "tailwindcss",
+  "jdtls",
+  "jsonls",
   "prismals",
-  "jdtls"
 }
 
 local tools = {
   "prettierd",
+  "black",
   "eslint_d",
-  "cpptools"
+  "cpptools",
 }
 
 require("mason").setup({
@@ -40,7 +37,7 @@ require("mason-lspconfig").setup {
 require("mason-tool-installer").setup {
   ensure_installed = tools,
   auto_update = true,
-  run_on_start = true -- use :MasonToolsUpdate instead
+  run_on_start = true -- or :MasonToolsUpdate
 }
 
 local lspconfig = require "lspconfig"
