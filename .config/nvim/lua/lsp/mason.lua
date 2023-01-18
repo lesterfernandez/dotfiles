@@ -7,9 +7,10 @@ local servers = {
   "cssls",
   "gopls",
   "pyright",
-  "jdtls",
   "jsonls",
   "prismals",
+  "tailwindcss",
+  "astro"
 }
 
 local tools = {

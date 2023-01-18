@@ -1,7 +1,7 @@
 local M = {}
 
 M.setup = function()
-  local diagnostic_config = {
+  vim.diagnostic.config({
     virtual_text = false,
     update_in_insert = true,
     severity_sort = true,
@@ -13,8 +13,7 @@ M.setup = function()
       header = "",
       prefix = "",
     }
-  }
-  vim.diagnostic.config(diagnostic_config)
+  })
 
   -- configure default handlers
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -26,8 +25,6 @@ M.setup = function()
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = {
-      spacing = 2,
-      prefix = "",
       severity_limit = "Warning"
     }
   })
@@ -77,14 +74,6 @@ M.on_attach = function(client, bufnr)
   if disable_formatting[client.name] then
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
-  end
-
-  if client.name == "tsserver" then
-    local tsserverGroup = vim.api.nvim_create_augroup("TSServer", { clear = true });
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      command = "lua vim.lsp.buf.execute_command({command = \"_typescript.organizeImports\", arguments = {vim.fn.expand(\"%:p\")}})",
-      group = tsserverGroup
-    })
   end
 
   setLSPKeymaps(bufnr, client)
