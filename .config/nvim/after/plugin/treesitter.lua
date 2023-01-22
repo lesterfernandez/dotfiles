@@ -36,7 +36,8 @@ treesitter.setup {
     "scss",
     "yaml",
     "graphql",
-    "vim"
+    "vim",
+    "astro"
   },
   autopairs = {
     enable = true,
