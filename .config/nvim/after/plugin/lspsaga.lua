@@ -16,7 +16,7 @@ vim.cmd("highlight LspSagaHoverBorder guifg='#E7D7AD'")
 vim.cmd("highlight LspSagaSignatureHelpBorder guifg='#E7D7AD'")
 vim.cmd("highlight LspSagaDefPreviewBorder guifg='#E7D7AD'")
 
-saga.init_lsp_saga({
+saga.setup({
   -- "single" | "double" | "rounded" | "bold" | "plus"
   border_style = "rounded",
   -- range 0 - 100 of transparency
