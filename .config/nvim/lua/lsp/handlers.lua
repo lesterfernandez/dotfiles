@@ -2,32 +2,32 @@ local M = {}
 
 M.setup = function()
   vim.diagnostic.config({
-    virtual_text = false,
-    update_in_insert = true,
-    severity_sort = true,
-    float = {
-      focusable = true,
-      style = "minimal",
-      border = "rounded",
-      source = "always",
-      header = "",
-      prefix = "",
-    }
+      virtual_text = false,
+      update_in_insert = true,
+      severity_sort = true,
+      float = {
+          focusable = true,
+          style = "minimal",
+          border = "rounded",
+          source = "always",
+          header = "",
+          prefix = "",
+      }
   })
 
   -- configure default handlers
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-  })
+          border = "rounded",
+      })
   vim.lsp.handlers["textDocument/signature_help"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  })
+          border = "rounded",
+      })
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = {
-      severity_limit = "Warning"
-    }
-  })
+          vim.lsp.diagnostic.on_publish_diagnostics, {
+          virtual_text = {
+              severity_limit = "Warning"
+          }
+      })
 
   local has_telescope_builtins, telescope_builtins = pcall(require, "telescope.builtin")
   if has_telescope_builtins then
@@ -68,8 +68,8 @@ end
 
 M.on_attach = function(client, bufnr)
   local disable_formatting = {
-    ["tsserver"] = true,
-    ["html"] = true
+      ["tsserver"] = true,
+      ["html"] = true
   }
   if disable_formatting[client.name] then
     client.server_capabilities.document_formatting = false
