@@ -1,8 +1,9 @@
 bindkey -e
 
+setopt HIST_IGNORE_DUPS
+
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 autoload -Uz vcs_info
@@ -14,3 +15,4 @@ prompt='%~${vcs_info_msg_0_} %# '
 
 export NVM_DIR=~/.nvm
 source ~/.nvm/nvm.sh
+
