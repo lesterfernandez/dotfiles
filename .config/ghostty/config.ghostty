@@ -1,0 +1,20 @@
+# Colors
+theme = Apple System Colors
+
+# Font Settings
+font-family = "SF Mono"
+font-size = 12
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+
+shell-integration-features = ssh-env,sudo,no-cursor
+term = xterm-256color
+
+window-width = 150
+window-height = 50
+window-padding-x = 5
+window-padding-y = 3
+window-padding-balance = true
+
