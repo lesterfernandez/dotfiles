@@ -108,6 +108,9 @@ hi('@lsp.type.type',          { link = 'Type' })
 hi('@lsp.type.typeParameter', { link = 'TypeDef' })
 hi('@lsp.type.variable',      { link = 'Identifier' })
 
+-- CMake
+hi('ModeMsg',                 { link = 'Normal' })
+
 -- if vim.o.background == 'light' then
 -- hi('Comment',        { fg = 'gray',        ctermfg = 'gray' })
 -- else
